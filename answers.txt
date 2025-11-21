@@ -1,0 +1,50 @@
+CSE233 – Assignment 2 Answers
+
+1) Code examples and their purpose
+
+A) process_creation.c (fork)
+- Uses fork() to create a child process.
+- Child branch (pid == 0): prints its PID.
+- Parent branch (pid > 0): prints its PID.
+- On failure (pid == -1): prints an error message.
+
+B) Shell process management
+- sleep 300 &: starts a 300-second sleep in the background.
+- jobs: displays background jobs.
+- ps aux | grep sleep: finds the running sleep process and its PID.
+- kill <PID>: sends SIGTERM to terminate the process.
+- kill -STOP <PID>: pauses the process (SIGSTOP).
+- kill -CONT <PID>: resumes the process (SIGCONT).
+
+C) Linker example (file1.c + file2.c)
+- file1.c defines hello().
+- file2.c declares hello() and calls it in main().
+- The linker resolves the external symbol hello and produces a single executable.
+
+D) Loader example (simple_program.c)
+- At runtime, the loader maps the executable and its shared libraries into memory.
+- ldd simple_program lists the dynamic libraries the binary depends on (e.g., libc, ld-linux).
+
+2) Role of the Linker
+- Combines object files into an executable.
+- Resolves external references between translation units.
+- Arranges code/data sections, applies relocations, and links against libraries.
+
+3) Role of the Loader
+- Loads the executable into memory for execution.
+- Resolves dynamic symbols and relocations for shared libraries.
+- Sets up the process image and transfers control to the entry point.
+
+4) Makefile
+- Builds process_creation, output_program, and simple_program.
+- Includes run targets and a clean target.
+
+5) README.md
+- Provides overview, build/run instructions, shell commands, and license info.
+
+6) License
+- MIT License included in LICENSE file.
+
+7) Screenshots
+- Capture outputs after make, run targets, and ldd.
+- Save them in /screenshots directory.
